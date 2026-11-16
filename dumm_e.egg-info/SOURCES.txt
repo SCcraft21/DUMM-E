@@ -1,3 +1,4 @@
+LICENSE
 pyproject.toml
 dumm_e.egg-info/PKG-INFO
 dumm_e.egg-info/SOURCES.txt

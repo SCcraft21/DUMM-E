@@ -1,0 +1,23 @@
+# Direct Preference Optimization (DPO) Configuration
+model_config: "configs/model_220m.yaml"
+sft_checkpoint: "checkpoints/sft_conscience/best_model.pt"
+tokenizer_path: "artifacts/tokenizer/tokenizer.json"
+
+dpo:
+  beta: 0.1                      # Temperature parameter controlling deviation from reference model
+  label_smoothing: 0.0
+  learning_rate: 5.0e-6
+  min_learning_rate: 5.0e-7
+  warmup_steps: 100
+  max_steps: 5000
+  batch_size: 2
+  gradient_accumulation_steps: 8
+  weight_decay: 0.01
+  grad_clip: 1.0
+  precision: "bfloat16"
+
+logging:
+  log_interval: 10
+  save_interval: 500
+  checkpoint_dir: "checkpoints/dpo_align"
+

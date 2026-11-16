@@ -1,0 +1,20 @@
+# Dumm-E 220M Architecture Configuration
+d_model: 1024
+n_layers: 12
+n_heads: 16
+n_kv_heads: 4
+d_ff: 2816
+vocab_size: 32000
+max_seq_len: 2048
+rope_theta: 10000.0
+rms_norm_eps: 1.0e-6
+tie_word_embeddings: true
+dropout: 0.0
+
+# Conscience (Discernment-Unified Moral & Multimodal Engine) Value Head
+conscience_layer_idx: 10           # Penultimate layer (layer 10 out of 12)
+conscience_hidden_dim: 256
+conscience_num_classes: 4          # Principle violations: [HarmPrevention, Truthfulness, Constructiveness, Fairness]
+conscience_threshold: 0.60         # Scalar risk threshold for logit suppression & refusal gating
+action_risk_threshold: 0.50        # Maximum allowable risk score for local action clearance
+

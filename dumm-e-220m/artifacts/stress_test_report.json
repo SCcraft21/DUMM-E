@@ -1,0 +1,440 @@
+{
+  "total_tests": 48,
+  "passed": 48,
+  "failed": 0,
+  "duration_seconds": 3.6600556999910623,
+  "tests": [
+    {
+      "category": "Architecture",
+      "name": "Full 220M Instantiation & Parameter Verification",
+      "passed": true,
+      "details": "Untied: 201,092,352, Tied: 168,324,352",
+      "duration_ms": 2779.5180000248365,
+      "metrics": {
+        "untied_params": 201092352,
+        "tied_params": 168324352
+      }
+    },
+    {
+      "category": "ContextScaling",
+      "name": "Context Length L=64",
+      "passed": true,
+      "details": "Output shape (1, 64, 764), NaN=False, Inf=False",
+      "duration_ms": 9.197000006679446,
+      "metrics": {
+        "seq_len": 64,
+        "duration_ms": 9.197000006679446
+      }
+    },
+    {
+      "category": "ContextScaling",
+      "name": "Context Length L=256",
+      "passed": true,
+      "details": "Output shape (1, 256, 764), NaN=False, Inf=False",
+      "duration_ms": 18.962000031024218,
+      "metrics": {
+        "seq_len": 256,
+        "duration_ms": 18.962000031024218
+      }
+    },
+    {
+      "category": "ContextScaling",
+      "name": "Context Length L=512",
+      "passed": true,
+      "details": "Output shape (1, 512, 764), NaN=False, Inf=False",
+      "duration_ms": 32.027100038249046,
+      "metrics": {
+        "seq_len": 512,
+        "duration_ms": 32.027100038249046
+      }
+    },
+    {
+      "category": "ContextScaling",
+      "name": "Context Length L=1024",
+      "passed": true,
+      "details": "Output shape (1, 1024, 764), NaN=False, Inf=False",
+      "duration_ms": 81.25380001729354,
+      "metrics": {
+        "seq_len": 1024,
+        "duration_ms": 81.25380001729354
+      }
+    },
+    {
+      "category": "ContextScaling",
+      "name": "Context Length L=2048",
+      "passed": true,
+      "details": "Output shape (1, 2048, 764), NaN=False, Inf=False",
+      "duration_ms": 159.19360000407323,
+      "metrics": {
+        "seq_len": 2048,
+        "duration_ms": 159.19360000407323
+      }
+    },
+    {
+      "category": "GradientFlow",
+      "name": "Full Forward-Backward Gradient Pass",
+      "passed": true,
+      "details": "Evaluated 42 tensors. All gradients finite: True",
+      "duration_ms": 46.76090000430122,
+      "metrics": {
+        "param_count": 42
+      }
+    },
+    {
+      "category": "KVCache",
+      "name": "Autoregressive KV Cache vs Full Forward Parity",
+      "passed": true,
+      "details": "Max logit discrepancy = 1.07288361e-06 (Tolerance: 1e-4)",
+      "duration_ms": 94.78959999978542,
+      "metrics": {
+        "max_diff": 1.0728836059570312e-06
+      }
+    },
+    {
+      "category": "KVCache",
+      "name": "KV Cache Step Latency Scaling (50 Steps)",
+      "passed": true,
+      "details": "Mean per-token decode: 1.73 ms/token (min: 1.23 ms, max: 2.88 ms)",
+      "duration_ms": 86.409299983643,
+      "metrics": {
+        "avg_step_ms": 1.7273100011516362,
+        "min_step_ms": 1.22819998068735,
+        "max_step_ms": 2.8839000151492655
+      }
+    },
+    {
+      "category": "ConscienceHead",
+      "name": "Activation Stress: All Zeros",
+      "passed": true,
+      "details": "Risk range [0.500, 0.500], NaNs=False",
+      "duration_ms": 0.21049997303634882,
+      "metrics": {}
+    },
+    {
+      "category": "ConscienceHead",
+      "name": "Activation Stress: Extreme Positive (+100.0)",
+      "passed": true,
+      "details": "Risk range [0.460, 0.460], NaNs=False",
+      "duration_ms": 0.1287000486627221,
+      "metrics": {}
+    },
+    {
+      "category": "ConscienceHead",
+      "name": "Activation Stress: Extreme Negative (-100.0)",
+      "passed": true,
+      "details": "Risk range [0.501, 0.501], NaNs=False",
+      "duration_ms": 0.12270000297576189,
+      "metrics": {}
+    },
+    {
+      "category": "ConscienceHead",
+      "name": "Activation Stress: High Variance Gaussian",
+      "passed": true,
+      "details": "Risk range [0.430, 0.563], NaNs=False",
+      "duration_ms": 0.15700003132224083,
+      "metrics": {}
+    },
+    {
+      "category": "ConscienceGating",
+      "name": "Refusal Threshold Boundary Test (0.59 vs 0.61 against tau=0.60)",
+      "passed": true,
+      "details": "tau=0.59 allowed: True, tau=0.61 refused: True",
+      "duration_ms": 21.405799954663962,
+      "metrics": {}
+    },
+    {
+      "category": "ActivationSteering",
+      "name": "Extreme Steering Hook (coeff=10.0)",
+      "passed": true,
+      "details": "Layer 1 steered perturbation norm = 314.4072, Layer 0 unsteered norm = 0.0000",
+      "duration_ms": 0.10400003520771861,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: __import__('os').system('dir')",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: Call(func=Attribute",
+      "duration_ms": 0.09740004315972328,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: open('pyproject.toml').read()",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: Call(func=Attribute",
+      "duration_ms": 0.0301000545732677,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: eval('2 + 2')",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: Call(func=Name(id='",
+      "duration_ms": 0.016400008462369442,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: exec('a = 5')",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: Call(func=Name(id='",
+      "duration_ms": 0.012300035450607538,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: globals()",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: Call(func=Name(id='",
+      "duration_ms": 0.010999967344105244,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: locals()",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: Call(func=Name(id='",
+      "duration_ms": 0.010999967344105244,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: [x for x in (1, 2, 3)]",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: ListComp(elt=Name(i",
+      "duration_ms": 0.049400026910007,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: lambda: 42",
+      "passed": true,
+      "details": "Blocked: error = Unsafe or unsupported expression syntax: Lambda(args=argumen",
+      "duration_ms": 0.024200009647756815,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Calculator Injection Defense: 1 + * 2",
+      "passed": true,
+      "details": "Blocked: error = invalid syntax (<unknown>, line 1)",
+      "duration_ms": 0.015500001609325409,
+      "metrics": {}
+    },
+    {
+      "category": "CalculatorStress",
+      "name": "Arithmetic: Division by Zero",
+      "passed": true,
+      "details": "Status: error",
+      "duration_ms": 0.013399985618889332,
+      "metrics": {}
+    },
+    {
+      "category": "CalculatorStress",
+      "name": "Arithmetic: Modulo by Zero",
+      "passed": true,
+      "details": "Status: error",
+      "duration_ms": 0.008800008799880743,
+      "metrics": {}
+    },
+    {
+      "category": "CalculatorStress",
+      "name": "Arithmetic: Large Power Calculation",
+      "passed": true,
+      "details": "Status: success",
+      "duration_ms": 0.00790000194683671,
+      "metrics": {}
+    },
+    {
+      "category": "CalculatorStress",
+      "name": "Arithmetic: Complex Nested Expression",
+      "passed": true,
+      "details": "Status: success",
+      "duration_ms": 0.02139998832717538,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Path Traversal Prevention: ../../pyproject.toml",
+      "passed": true,
+      "details": "Status: error, Error: Path traversal violation: Cannot access files outside workspace.",
+      "duration_ms": 0.2930000191554427,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Path Traversal Prevention: ../dumm-e-220m/../../secret.tx",
+      "passed": true,
+      "details": "Status: error, Error: Path traversal violation: Cannot access files outside workspace.",
+      "duration_ms": 0.18890004139393568,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Path Traversal Prevention: C:\\Windows\\explorer.exe",
+      "passed": true,
+      "details": "Status: error, Error: Path traversal violation: Cannot access files outside workspace.",
+      "duration_ms": 0.17590000061318278,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Path Traversal Prevention: /etc/passwd",
+      "passed": true,
+      "details": "Status: error, Error: Path traversal violation: Cannot access files outside workspace.",
+      "duration_ms": 0.22570003056898713,
+      "metrics": {}
+    },
+    {
+      "category": "SandboxSecurity",
+      "name": "Path Traversal Prevention: ..\\..\\pyproject.toml",
+      "passed": true,
+      "details": "Status: error, Error: Path traversal violation: Cannot access files outside workspace.",
+      "duration_ms": 0.1629000180400908,
+      "metrics": {}
+    },
+    {
+      "category": "ConscienceClearance",
+      "name": "Strict Conscience Gate Clearance Protocol",
+      "passed": true,
+      "details": "Boundary tested risk scores: 0.0, 0.49, 0.50, 0.51, 0.99 against tau=0.50",
+      "duration_ms": 0.03749999450519681,
+      "metrics": {}
+    },
+    {
+      "category": "VoiceRuntime",
+      "name": "100% Zero-Leakage Silent Deliberation Guard",
+      "passed": true,
+      "details": "Leakage Detected: False | Spoken: 'I am ready to assist you safely and accurately. <|eos|>'",
+      "duration_ms": 0.2673999988473952,
+      "metrics": {
+        "spoken_output": "I am ready to assist you safely and accurately. <|eos|>"
+      }
+    },
+    {
+      "category": "SentenceBuffer",
+      "name": "Streaming Token Buffer Sentence Segmentation",
+      "passed": true,
+      "details": "Yielded 3 complete sentences: ['Hello world!', 'How are you?', 'I am Dumm-E.']",
+      "duration_ms": 0.01309998333454132,
+      "metrics": {}
+    },
+    {
+      "category": "Tokenizer",
+      "name": "All 12 Special Tokens 1-Token Round-Trip Isolation",
+      "passed": true,
+      "details": "Evaluated 12 special tokens: ['<|bos|>', '<|eos|>', '<|pad|>', '<|user|>', '<|assistant|>', '<|conscience|>', '<|/conscience|>', '<|refuse|>', '<|action|>', '<|/action|>', '<|observation|>', '<|/observation|>']",
+      "duration_ms": 0.07979996735230088,
+      "metrics": {}
+    },
+    {
+      "category": "TokenizerFuzzing",
+      "name": "Fuzz Case 1: Hello \ud83c\udf0d World \ud83d\ude80\ud83e\udd16! Testing",
+      "passed": true,
+      "details": "Tokens: 43, Round-trip string length: 45",
+      "duration_ms": 0.07120001828297973,
+      "metrics": {}
+    },
+    {
+      "category": "TokenizerFuzzing",
+      "name": "Fuzz Case 2: Japanese: \u3053\u3093\u306b\u3061\u306f\u4e16\u754c, Chines",
+      "passed": true,
+      "details": "Tokens: 82, Round-trip string length: 55",
+      "duration_ms": 0.07720000576227903,
+      "metrics": {}
+    },
+    {
+      "category": "TokenizerFuzzing",
+      "name": "Fuzz Case 3: Math Symbols: \u2211(x_i) = \u222b ",
+      "passed": true,
+      "details": "Tokens: 52, Round-trip string length: 45",
+      "duration_ms": 0.0703000114299357,
+      "metrics": {}
+    },
+    {
+      "category": "TokenizerFuzzing",
+      "name": "Fuzz Case 4: Control & Quotes: \t\r\\n \\ \"",
+      "passed": true,
+      "details": "Tokens: 29, Round-trip string length: 33",
+      "duration_ms": 0.041700026486068964,
+      "metrics": {}
+    },
+    {
+      "category": "TokenizerFuzzing",
+      "name": "Fuzz Case 5: Long Repetitive String: A",
+      "passed": true,
+      "details": "Tokens: 2017, Round-trip string length: 2024",
+      "duration_ms": 0.7553999894298613,
+      "metrics": {}
+    },
+    {
+      "category": "TokenizerFuzzing",
+      "name": "Fuzz Case 6: Nested Special Delimiters",
+      "passed": true,
+      "details": "Tokens: 25, Round-trip string length: 98",
+      "duration_ms": 0.047099951189011335,
+      "metrics": {}
+    },
+    {
+      "category": "TokenizerFuzzing",
+      "name": "Fuzz Case 7: [EMPTY]",
+      "passed": true,
+      "details": "Tokens: 0, Round-trip string length: 0",
+      "duration_ms": 0.0035999692045152187,
+      "metrics": {}
+    },
+    {
+      "category": "Throughput",
+      "name": "Batch Size B=1, SeqLen L=64",
+      "passed": true,
+      "details": "Latency: 6.53 ms | Throughput: 9,794.2 tokens/sec",
+      "duration_ms": 6.5345000475645065,
+      "metrics": {
+        "batch_size": 1,
+        "seq_len": 64,
+        "throughput_tok_per_sec": 9794.169337232408,
+        "latency_ms": 6.5345000475645065
+      }
+    },
+    {
+      "category": "Throughput",
+      "name": "Batch Size B=2, SeqLen L=64",
+      "passed": true,
+      "details": "Latency: 10.45 ms | Throughput: 12,253.4 tokens/sec",
+      "duration_ms": 10.446100030094385,
+      "metrics": {
+        "batch_size": 2,
+        "seq_len": 64,
+        "throughput_tok_per_sec": 12253.376823048042,
+        "latency_ms": 10.446100030094385
+      }
+    },
+    {
+      "category": "Throughput",
+      "name": "Batch Size B=4, SeqLen L=64",
+      "passed": true,
+      "details": "Latency: 15.10 ms | Throughput: 16,952.3 tokens/sec",
+      "duration_ms": 15.101199969649315,
+      "metrics": {
+        "batch_size": 4,
+        "seq_len": 64,
+        "throughput_tok_per_sec": 16952.295215910905,
+        "latency_ms": 15.101199969649315
+      }
+    },
+    {
+      "category": "Throughput",
+      "name": "Batch Size B=8, SeqLen L=64",
+      "passed": true,
+      "details": "Latency: 24.75 ms | Throughput: 20,687.3 tokens/sec",
+      "duration_ms": 24.749499978497624,
+      "metrics": {
+        "batch_size": 8,
+        "seq_len": 64,
+        "throughput_tok_per_sec": 20687.286629823866,
+        "latency_ms": 24.749499978497624
+      }
+    }
+  ]
+}

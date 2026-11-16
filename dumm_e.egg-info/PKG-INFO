@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: dumm-e
+Version: 0.1.0
+Summary: A 220M-parameter decoder-only Transformer with built-in synthetic conscience (value alignment and safety head)
+Author: DUMM-E Contributors
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=2.0.0
+Requires-Dist: tokenizers>=0.13.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: tqdm>=4.60.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"

@@ -1,0 +1,30 @@
+# Conscience Supervised Fine-Tuning (SFT) Configuration
+model_config: "configs/model_220m.yaml"
+pretrained_checkpoint: "checkpoints/pretrain/best_model.pt"
+tokenizer_path: "artifacts/tokenizer/tokenizer.json"
+
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  max_seq_len: 2048
+  learning_rate: 2.0e-5
+  min_learning_rate: 2.0e-6
+  warmup_steps: 200
+  max_steps: 10000
+  weight_decay: 0.05
+  grad_clip: 1.0
+  precision: "bfloat16"
+  gradient_checkpointing: true
+
+conscience_training:
+  lm_loss_weight: 1.0
+  risk_loss_weight: 0.5
+  principle_loss_weight: 0.5
+  deliberation_token_start: "<|conscience|>"
+  deliberation_token_end: "<|/conscience|>"
+
+logging:
+  log_interval: 10
+  save_interval: 500
+  checkpoint_dir: "checkpoints/sft_conscience"
+

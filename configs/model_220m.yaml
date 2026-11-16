@@ -1,0 +1,19 @@
+# Model Architecture Configuration: 220M-Parameter DUMM-E Transformer
+d_model: 1024
+n_layers: 12
+n_heads: 16
+n_kv_heads: 4
+d_ff: 2816
+vocab_size: 32000
+max_seq_len: 2048
+rope_theta: 10000.0
+rms_norm_eps: 1.0e-6
+tie_word_embeddings: true
+dropout: 0.0
+
+# Conscience / Value Alignment Head
+conscience_layer_idx: 10          # Penultimate layer (0-indexed layer 10 of 12)
+conscience_hidden_dim: 256
+conscience_num_classes: 4         # Principle violations: [HarmPrevention, Truthfulness, Constructiveness, Fairness]
+conscience_threshold: 0.65        # Default risk threshold for refusal / gating
+
